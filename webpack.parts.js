@@ -4,24 +4,26 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const jsRegex = /\.js$/;
 const cssRegex = /\.scss$/;
 
-exports.generateHtml = ({ title } = {}) => ({
-  plugins: [
-    new HtmlWebpackPlugin({
-      title,
-    }),
-  ],
+exports.generateHtml = ({ htmlPaths } = {}) => ({
+  plugins: htmlPaths.map(({ filename, template, chunks }) => new HtmlWebpackPlugin({
+    template,
+    inject: true,
+    ...(chunks && { chunks }),
+    ...(filename && { filename }),
+  })),
 });
 
 exports.cleanDist = () => ({
   plugins: [new CleanWebpackPlugin()],
 });
 
-exports.devServer = ({ host, port } = {}) => ({
+exports.devServer = ({ contentBase, host, port } = {}) => ({
   devServer: {
     stats: 'errors-only',
+    contentBase,
     host,
     port,
-    open: false,
+    open: true,
     overlay: true,
   },
 });

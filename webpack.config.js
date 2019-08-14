@@ -6,6 +6,8 @@ const configParts = require('./webpack.parts');
 const PATHS = {
   src: path.join(__dirname, 'src'),
   dist: path.resolve(__dirname, 'dist'),
+  mainHtml: path.resolve(__dirname, 'src', 'Html', 'index.html'),
+  formHtml: path.resolve(__dirname, 'src', 'Html', 'form.html'),
 };
 
 const commonConfig = merge([
@@ -20,7 +22,12 @@ const commonConfig = merge([
   configParts.cleanDist(),
 
   configParts.generateHtml({
-    title: 'OSF Challenge',
+    htmlPaths: [{
+      template: PATHS.mainHtml,
+    }, {
+      template: PATHS.formHtml,
+      filename: 'cadastro.html',
+    }],
   }),
 
   configParts.loadJs({
