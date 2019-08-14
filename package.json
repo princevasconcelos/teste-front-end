@@ -4,7 +4,7 @@
   "description": "![Easynvest](https://user-images.githubusercontent.com/8808895/46966234-81191d00-d083-11e8-8da3-63d1f12e4365.png)",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --env development --open",
+    "start": "webpack-dev-server --env development",
     "build": "webpack --env production"
   },
   "repository": {
@@ -29,6 +29,7 @@
     "eslint-plugin-import": "^2.18.2",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.12.0",
+    "prettier": "^1.18.2",
     "sass-loader": "^7.2.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.39.2",
