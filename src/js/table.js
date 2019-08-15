@@ -1,5 +1,7 @@
 import LocalStorage from './localStorage';
 
+import '../css/styles.scss';
+
 const table = document.querySelector('#table tbody');
 
 const URL = 'https://private-21e8de-rafaellucio.apiary-mock.com/users';
@@ -36,7 +38,7 @@ function setTableData(data) {
         <td>${cpf}</td>
         <td>${phone}</td>
         <td>${email}</td>
-        <td><button class='btn btn__delete'>X</button></td>
+        <td><button class='btn btn__delete'>Excluir</button></td>
     </tr>`).join('');
 
   setDeleteButtonsEvent();
