@@ -3,12 +3,25 @@ import Masks from './masks';
 
 import '../css/styles.scss';
 
-const form = document.querySelector('.form__signup');
+const form = document.querySelector('.form');
+const sendBtn = document.querySelector('.btn__send');
+const loading = document.querySelector('.loader');
+
+function showLoading() {
+  loading.innerHTML = '';
+  loading.classList.add('loading');
+  sendBtn.classList.add('btn__loading');
+}
+
+function hideLoading() {
+  loading.innerHTML = 'Cadastrar';
+  loading.classList.remove('loading');
+  sendBtn.classList.remove('btn__loading');
+}
 
 function onSubtmitForm(e) {
   e.preventDefault();
-
-  console.log(form);
+  showLoading();
 
   const user = {
     name: document.getElementById('name').value,
@@ -17,23 +30,28 @@ function onSubtmitForm(e) {
     email: document.getElementById('email').value,
   };
 
-  // LocalStorage.add(user);
-  // form.reset();
-  // window.location.href = '/';
+  LocalStorage.add(user);
+
+  setTimeout(() => {
+    form.reset();
+    window.location.href = '/';
+    hideLoading();
+  }, 3000);
+}
+
+function checkFormValidity() {
+  const isValid = form.checkValidity();
+
+  return isValid
+    ? sendBtn.removeAttribute('disabled')
+    : sendBtn.setAttribute('disabled', '');
 }
 
 document.querySelectorAll('input').forEach(($input) => {
   const field = $input.dataset.js;
 
-  console.log($input.validity);
-  console.log($input.validationMessage);
-
-  // $input.addEventListener('blur', (e) => {
-  //   console.log(e.target);
-  // });
-
   $input.addEventListener('input', (e) => {
-    console.log(e.target.validity);
+    checkFormValidity();
     e.target.value = Masks[field](e.target.value);
   }, false);
 });
