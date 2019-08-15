@@ -4,17 +4,95 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Cadastro</title>
+    <title>Cadastro de usuários</title>
   </head>
   <body>
-    <form class="form form__signup">
-      <input type="text" name="name" id="name" placeholder="Nome Competo" />
-      <input type="text" name="cpf" id="cpf" placeholder="CPF" />
-      <input type="text" name="phone" id="phone" placeholder="Telefone" />
-      <input type="text" name="email" id="email" placeholder="Email" />
+    <main>
+      <form class="form">
+        <a class="link link__back" href="/">Voltar</a>
 
-      <a href="/">Voltar</a>
-      <button type="submit" class="btn btn__send">Enviar</button>
-    </form>
+        <h1>Cadastrar novo usuário</h1>
+
+        <div class="form__field">
+          <input
+            class="form__input"
+            type="text"
+            name="name"
+            id="name"
+            autocomplete="off"
+            data-js="name"
+            placeholder=" "
+            pattern=".{3,}"
+            required
+          />
+
+          <label class="form__label" for="name"
+            >Nome competo (sem abreviações)
+          </label>
+
+          <small class="form__error"
+            >Campo deve conter no mínimo 3 caracteres</small
+          >
+        </div>
+
+        <div class="form__field">
+          <input
+            class="form__input"
+            type="text"
+            name="email"
+            placeholder=" "
+            data-js="email"
+            autocomplete="off"
+            id="email"
+            required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            data-js="email"
+          />
+
+          <label class="form__label" for="email">E-mail</label>
+
+          <small class="form__error">E-mail inválido</small>
+        </div>
+
+        <div class="form__field">
+          <input
+            class="form__input"
+            type="tel"
+            name="cpf"
+            id="cpf"
+            data-js="cpf"
+            autocomplete="off"
+            placeholder=" "
+            pattern=".{14}"
+            required
+          />
+
+          <label class="form__label" for="cpf">CPF</label>
+
+          <small class="form__error">CPF inválido</small>
+        </div>
+
+        <div class="form__field">
+          <input
+            class="form__input"
+            type="tel"
+            name="phone"
+            data-js="phone"
+            id="phone"
+            placeholder=" "
+            autocomplete="off"
+            pattern=".{14,15}"
+            required
+            data-js="phone"
+          />
+
+          <label class="form__label" for="phone">Telefone </label>
+
+          <small class="form__error">Telefone inválido</small>
+        </div>
+
+        <button type="submit" class="btn btn__send">Cadastrar</button>
+      </form>
+    </main>
   </body>
 </html>
