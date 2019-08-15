@@ -6,8 +6,8 @@ const configParts = require('./webpack.parts');
 const PATHS = {
   src: path.join(__dirname, 'src'),
   dist: path.resolve(__dirname, 'dist'),
-  mainHtml: path.resolve(__dirname, 'src', 'Html', 'index.html'),
-  formHtml: path.resolve(__dirname, 'src', 'Html', 'form.html'),
+  mainHtml: path.resolve(__dirname, 'src', 'html', 'index.html'),
+  formHtml: path.resolve(__dirname, 'src', 'html', 'form.html'),
 };
 
 const commonConfig = merge([
@@ -22,12 +22,15 @@ const commonConfig = merge([
   configParts.cleanDist(),
 
   configParts.generateHtml({
-    htmlPaths: [{
-      template: PATHS.mainHtml,
-    }, {
-      template: PATHS.formHtml,
-      filename: 'cadastro.html',
-    }],
+    htmlPaths: [
+      {
+        template: PATHS.mainHtml,
+      },
+      {
+        template: PATHS.formHtml,
+        filename: 'cadastro.html',
+      },
+    ],
   }),
 
   configParts.loadJs({
@@ -52,4 +55,4 @@ const devConfig = merge([
   }),
 ]);
 
-module.exports = (mode) => merge([commonConfig, devConfig, { mode }]);
+module.exports = mode => merge([commonConfig, devConfig, {mode}]);
