@@ -1,5 +1,115 @@
-$gray: #ddd;
+$white: #fff;
+$lightestGray: #efeeed;
+$lighterGray: #f6f6f6;
+$gray: #dddcdc;
+$black: #333333;
+$green: #00c8b3;
+$danger: #eb4a46;
 
-body {
-  background-color: $gray;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  margin: 16px;
+}
+
+.form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 8px;
+  }
+
+  &__label {
+    position: absolute;
+    color: gray;
+    font-size: 20px;
+    top: 25px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &__input {
+    border: none;
+    box-shadow: inset 0 -1px $black;
+    color: $black;
+    padding: 16px 0;
+    margin: 8px 0;
+    font-size: 18px;
+
+    &:not(:placeholder-shown) + label {
+      top: 4px;
+      font-size: 14px;
+    }
+
+    &:focus:invalid {
+      box-shadow: inset 0 -1px $danger;
+
+      & ~ small {
+        display: block;
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__error {
+    display: none;
+    color: $danger;
+  }
+}
+
+.link {
+  text-decoration: none;
+  font-size: 18px;
+  color: $black;
+  opacity: 0.6;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &__back {
+    align-self: flex-start;
+    margin-bottom: 16px;
+  }
+}
+
+.btn {
+  background: $green;
+  color: $white;
+  border: none;
+  border-radius: 1000px;
+  font-size: 18px;
+  padding: 16px 0;
+  height: 55px;
+  cursor: pointer;
+  font-weight: bold;
+
+  &:not(:disabled):hover {
+    opacity: 0.7;
+  }
+
+  &:disabled {
+    background-color: $lighterGray;
+    color: $gray;
+  }
+
+  &__send {
+    margin-top: 32px;
+  }
 }
