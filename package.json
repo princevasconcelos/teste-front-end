@@ -6,7 +6,10 @@
     "scripts": {
         "start": "webpack-dev-server --env development",
         "prettier": "prettier --write src/**/*",
-        "test": "jest"
+        "jest": "jest",
+        "cypress": "cypress open",
+        "test:unit": "yarn run jest",
+        "test:e2e": "concurrently --kill-others \"yarn start\" \"npm run cypress\""
     },
     "repository": {
         "type": "git",
@@ -27,10 +30,13 @@
         "babel-jest": "^24.8.0",
         "babel-loader": "^8.0.6",
         "clean-webpack-plugin": "^3.0.0",
+        "concurrently": "^4.1.1",
         "css-loader": "^3.2.0",
+        "cypress": "^3.4.1",
         "eslint": "^6.1.0",
         "eslint-config-airbnb-base": "^14.0.0",
         "eslint-config-prettier": "^6.0.0",
+        "eslint-plugin-cypress": "^2.6.1",
         "eslint-plugin-import": "^2.18.2",
         "eslint-plugin-prettier": "^3.1.0",
         "html-webpack-plugin": "^3.2.0",
@@ -51,7 +57,8 @@
     },
     "jest": {
         "testPathIgnorePatterns": [
-            "/node_modules/"
+            "/node_modules/",
+            "integration"
         ],
         "verbose": true
     }
