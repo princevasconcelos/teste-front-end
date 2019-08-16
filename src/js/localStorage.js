@@ -21,6 +21,10 @@ const LocalStorage = {
     const newData = data.filter((_, i) => i !== pos);
     this.updateWith(newData);
   },
+
+  clean() {
+    localStorage.clear();
+  },
 };
 
 export default LocalStorage;
