@@ -1,49 +1,58 @@
 {
-  "name": "osf-frontend",
-  "version": "1.0.0",
-  "description": "![Easynvest](https://user-images.githubusercontent.com/8808895/46966234-81191d00-d083-11e8-8da3-63d1f12e4365.png)",
-  "main": "index.js",
-  "scripts": {
-    "start": "webpack-dev-server --env development",
-    "prettier": "prettier --write src/**/*"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/princevasconcelos/teste-front-end.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/princevasconcelos/teste-front-end/issues"
-  },
-  "homepage": "https://github.com/princevasconcelos/teste-front-end#readme",
-  "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-transform-runtime": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "babel-eslint": "^10.0.2",
-    "babel-loader": "^8.0.6",
-    "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^3.2.0",
-    "eslint": "^6.1.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-prettier": "^3.1.0",
-    "html-webpack-plugin": "^3.2.0",
-    "husky": "^3.0.3",
-    "node-sass": "^4.12.0",
-    "prettier": "^1.18.2",
-    "pretty-quick": "^1.11.1",
-    "sass-loader": "^7.2.0",
-    "style-loader": "^1.0.0",
-    "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.8.0",
-    "webpack-merge": "^4.2.1"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.5.5"
-  }
+    "name": "osf-frontend",
+    "version": "1.0.0",
+    "description": "![Easynvest](https://user-images.githubusercontent.com/8808895/46966234-81191d00-d083-11e8-8da3-63d1f12e4365.png)",
+    "main": "index.js",
+    "scripts": {
+        "start": "webpack-dev-server --env development",
+        "prettier": "prettier --write src/**/*",
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/princevasconcelos/teste-front-end.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/princevasconcelos/teste-front-end/issues"
+    },
+    "homepage": "https://github.com/princevasconcelos/teste-front-end#readme",
+    "devDependencies": {
+        "@babel/core": "^7.5.5",
+        "@babel/plugin-transform-runtime": "^7.5.5",
+        "@babel/preset-env": "^7.5.5",
+        "babel-eslint": "^10.0.2",
+        "babel-jest": "^24.8.0",
+        "babel-loader": "^8.0.6",
+        "clean-webpack-plugin": "^3.0.0",
+        "css-loader": "^3.2.0",
+        "eslint": "^6.1.0",
+        "eslint-config-airbnb-base": "^14.0.0",
+        "eslint-config-prettier": "^6.0.0",
+        "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-prettier": "^3.1.0",
+        "html-webpack-plugin": "^3.2.0",
+        "husky": "^3.0.3",
+        "jest": "^24.8.0",
+        "node-sass": "^4.12.0",
+        "prettier": "^1.18.2",
+        "pretty-quick": "^1.11.1",
+        "sass-loader": "^7.2.0",
+        "style-loader": "^1.0.0",
+        "webpack": "^4.39.2",
+        "webpack-cli": "^3.3.6",
+        "webpack-dev-server": "^3.8.0",
+        "webpack-merge": "^4.2.1"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.5.5"
+    },
+    "jest": {
+        "testPathIgnorePatterns": [
+            "/node_modules/"
+        ],
+        "verbose": true
+    }
 }
