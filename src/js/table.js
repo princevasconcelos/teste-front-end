@@ -1,16 +1,14 @@
 import LocalStorage from './localStorage';
 
-import '../css/styles.scss';
-
 const table = document.querySelector('#table tbody');
 
 const URL = 'https://private-21e8de-rafaellucio.apiary-mock.com/users';
 
 function setDeleteButtonsEvent() {
-    const buttons = document.querySelectorAll('.btn__delete');
-    buttons.forEach((btnNode, i) => {
-        btnNode.addEventListener('click', () => {
-            const row = btnNode.parentNode.parentNode;
+    const $buttons = document.querySelectorAll('.btn__delete');
+    $buttons.forEach(($btn, i) => {
+        $btn.addEventListener('click', () => {
+            const row = $btn.parentNode.parentNode;
             table.removeChild(row);
 
             LocalStorage.deleteAt(i);
@@ -21,25 +19,26 @@ function setDeleteButtonsEvent() {
 function setTableData(data) {
     if (!data || !data.length) {
         table.innerHTML = `
-        <tr>
-            <td colspan="3">
-                Nenhuma contato cadastrado
-            </td>
-        </tr>
-        `;
+    <tr>
+        <td colspan="3">
+            Nenhuma contato cadastrado
+        </td>
+    </tr>
+    `;
         return;
     }
 
     table.innerHTML = data
         .map(
             ({ name, cpf, phone, email }) => `
-    <tr>
-        <td>${name}</td>
-        <td>${cpf}</td>
-        <td>${phone}</td>
-        <td>${email}</td>
-        <td><button class='btn btn__delete'>Excluir</button></td>
-    </tr>`
+                <tr>
+                    <td>${name}</td>
+                    <td>${cpf}</td>
+                    <td>${phone}</td>
+                    <td>${email}</td>
+                    <td><button class='btn btn__delete'>Excluir</button></td>
+                </tr>
+            `
         )
         .join('');
 
@@ -67,6 +66,7 @@ function onPageLoaded() {
     return data ? setTableData(data) : fetchInitialData();
 }
 
-document.addEventListener('LocalStorageChanged', onLocalStorageChange);
-// document.addEventListener('DOMContentLoaded', onPageLoaded);
-onPageLoaded();
+if (table) {
+    document.addEventListener('LocalStorageChanged', onLocalStorageChange);
+    document.addEventListener('DOMContentLoaded', onPageLoaded);
+}

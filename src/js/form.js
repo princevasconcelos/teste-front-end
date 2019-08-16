@@ -1,8 +1,6 @@
 import LocalStorage from './localStorage';
 import Masks from './masks';
 
-import '../css/styles.scss';
-
 const form = document.querySelector('.form');
 const sendBtn = document.querySelector('.btn__send');
 const loading = document.querySelector('.loader');
@@ -60,4 +58,6 @@ document.querySelectorAll('input').forEach($input => {
     );
 });
 
-form.addEventListener('submit', onSubtmitForm);
+if (form) {
+    form.addEventListener('submit', onSubtmitForm);
+}
