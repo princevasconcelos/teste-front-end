@@ -31,11 +31,7 @@ describe('Create a new user', function() {
             .type(mockData.phone)
             .should('have.value', '(01) 23456-7890');
 
-        cy.wait(1000);
-
         cy.get('[data-cy="btn-send"]').click();
-
-        cy.wait(4000);
 
         cy.get('[data-cy="row-name"]').should('contain', mockData.name);
 
