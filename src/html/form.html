@@ -20,10 +20,11 @@
                         name="name"
                         id="name"
                         autocomplete="off"
-                        data-js="name"
                         placeholder=" "
                         pattern=".{3,}"
                         required
+                        data-js="name"
+                        data-cy="name"
                     />
 
                     <label class="form__label" for="name"
@@ -47,6 +48,7 @@
                         required
                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                         data-js="email"
+                        data-cy="email"
                     />
 
                     <label class="form__label" for="email">E-mail</label>
@@ -62,11 +64,12 @@
                         type="tel"
                         name="cpf"
                         id="cpf"
-                        data-js="cpf"
                         autocomplete="off"
                         placeholder=" "
                         pattern=".{14}"
                         required
+                        data-js="cpf"
+                        data-cy="cpf"
                     />
 
                     <label class="form__label" for="cpf">CPF</label>
@@ -86,6 +89,7 @@
                         pattern=".{14,}"
                         required
                         data-js="phone"
+                        data-cy="phone"
                     />
 
                     <label class="form__label" for="phone">Telefone </label>
@@ -95,7 +99,7 @@
                     >
                 </div>
 
-                <button type="submit" class="btn btn__send" disabled>
+                <button data-cy="btn-send" type="submit" class="btn btn__send" disabled>
                     <div class="loader">Cadastrar</div>
                 </button>
             </form>
