@@ -32,10 +32,10 @@ function setTableData(data) {
         .map(
             ({ name, cpf, phone, email }) => `
                 <tr>
-                    <td>${name}</td>
-                    <td>${cpf}</td>
-                    <td>${phone}</td>
-                    <td>${email}</td>
+                    <td data-cy="row-name">${name}</td>
+                    <td data-cy="row-cpf">${cpf}</td>
+                    <td data-cy="row-phone">${phone}</td>
+                    <td data-cy="row-email">${email}</td>
                     <td><button class='btn btn__delete'>Excluir</button></td>
                 </tr>
             `
