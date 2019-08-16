@@ -1,30 +1,34 @@
 const changeEvent = new Event('LocalStorageChanged');
 
-const LocalStorage = {
-    get() {
-        return JSON.parse(localStorage.getItem('data'));
-    },
-
-    updateWith(data) {
-        localStorage.setItem('data', JSON.stringify(data));
-        document.dispatchEvent(changeEvent);
-    },
-
-    add(newItem) {
-        const data = this.get();
-        data.push(newItem);
-        this.updateWith(data);
-    },
-
-    deleteAt(pos) {
-        const data = this.get();
-        const newData = data.filter((_, i) => i !== pos);
-        this.updateWith(newData);
-    },
-
-    clean() {
-        localStorage.clear();
-    }
+const get = () => {
+    return JSON.parse(localStorage.getItem('data'));
 };
 
-export default LocalStorage;
+const updateWith = data => {
+    localStorage.setItem('data', JSON.stringify(data));
+    document.dispatchEvent(changeEvent);
+};
+
+const add = newItem => {
+    const data = get() || [];
+    data.push(newItem);
+    updateWith(data);
+};
+
+const deleteAt = pos => {
+    const data = get();
+    const newData = data.filter((_, i) => i !== pos);
+    updateWith(newData);
+};
+
+const clean = () => {
+    localStorage.clear();
+};
+
+export default {
+    get,
+    updateWith,
+    add,
+    deleteAt,
+    clean
+};
