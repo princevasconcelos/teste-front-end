@@ -23,6 +23,54 @@ main {
     overflow: auto;
 }
 
+.btn {
+    background: $green;
+    color: $white;
+    border: none;
+    border-radius: 1000px;
+    font-size: 18px;
+    height: 55px;
+    cursor: pointer;
+    font-weight: bold;
+
+    &:not(:disabled):hover {
+        opacity: 0.7;
+    }
+
+    &:disabled {
+        background-color: $lighterGray;
+        color: $gray;
+    }
+
+    &__send {
+        margin-top: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__signup {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        width: 320px;
+    }
+
+    &__delete {
+        color: $danger;
+        opacity: 0.5;
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+        height: 20px;
+    }
+
+    &__loading {
+        pointer-events: none;
+    }
+}
+
 .form {
     flex: 1;
     display: flex;
@@ -76,70 +124,6 @@ main {
     }
 }
 
-.link {
-    text-decoration: none;
-    font-size: 18px;
-    color: $black;
-    opacity: 0.6;
-
-    &:hover {
-        opacity: 1;
-    }
-
-    &__back {
-        align-self: flex-start;
-        margin-bottom: 16px;
-    }
-}
-
-.btn {
-    background: $green;
-    color: $white;
-    border: none;
-    border-radius: 1000px;
-    font-size: 18px;
-    height: 55px;
-    cursor: pointer;
-    font-weight: bold;
-
-    &:not(:disabled):hover {
-        opacity: 0.7;
-    }
-
-    &:disabled {
-        background-color: $lighterGray;
-        color: $gray;
-    }
-
-    &__send {
-        margin-top: 32px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    &__signup {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-        width: 320px;
-    }
-
-    &__delete {
-        color: $danger;
-        opacity: 0.5;
-        background-color: transparent;
-        border: none;
-        border-radius: 0;
-        height: 20px;
-    }
-
-    &__loading {
-        pointer-events: none;
-    }
-}
-
 .loading {
     border: 3px solid transparent;
     border-top: 3px solid $white;
@@ -155,6 +139,22 @@ main {
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+.link {
+    text-decoration: none;
+    font-size: 18px;
+    color: $black;
+    opacity: 0.6;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &__back {
+        align-self: flex-start;
+        margin-bottom: 16px;
     }
 }
 
@@ -180,6 +180,7 @@ main {
     }
 
     th {
+        font-size: 20px;
         border-bottom: 1px solid #ddd;
     }
 
